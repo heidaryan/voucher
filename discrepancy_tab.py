@@ -26,7 +26,7 @@ class ExcelFolderReader:
         app = QApplication.instance()
         if not app:
             app = QApplication(sys.argv)
-            folder_path = QFileDialog.getExistingDirectory(None, "انتخاب فولدر حاوی فایل‌های اکسل")
+            folder_path = QFileDialog.getExistingDirectory(None, " انتخاب فولدر حاوی فایل‌های ریزاسناد و کدینگ (Folder)   ")
             return folder_path
 
 
@@ -582,9 +582,6 @@ class ExcelFolderReader:
 
  
  
-
-
-
     def is_matrix_project(self, df, threshold=0.1):
 
         non_empty_columns = (df.notna().sum() / len(df)) > threshold

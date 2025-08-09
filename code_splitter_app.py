@@ -1,5 +1,5 @@
 import pandas as pd
-import xlsxwriter
+
 from PyQt5.QtWidgets import (
     QWidget, QVBoxLayout, QPushButton, QMessageBox, QFileDialog,
     QLabel, QTableWidget, QTableWidgetItem, QSpinBox, QComboBox
@@ -17,20 +17,20 @@ class CodeSplitterApp(QWidget):
         self.layout = QVBoxLayout()
 
         # انتخاب فایل
-        self.load_button = QPushButton("انتخاب فایل اکسل ورودی")
+        self.load_button = QPushButton("انتخاب فایل ریز اسناد")
         self.load_button.clicked.connect(self.select_input_file)
         self.layout.addWidget(self.load_button)
 
         # ردیف هدر
         self.layout.addWidget(QLabel("تعیین ردیف هدر (شروع از ۰):"))
         self.header_spinbox = QSpinBox()
-        self.header_spinbox.setValue(0)
+        self.header_spinbox.setValue(1)
         self.layout.addWidget(self.header_spinbox)
 
         # حد مجاز سلول خالی
         self.layout.addWidget(QLabel("حداکثر تعداد مجاز ستون‌های خالی در هر ردیف (برای حذف):"))
         self.empty_column_spinbox = QSpinBox()
-        self.empty_column_spinbox.setValue(10)
+        self.empty_column_spinbox.setValue(20)
         self.layout.addWidget(self.empty_column_spinbox)
 
         # دکمه بارگذاری
@@ -81,8 +81,8 @@ class CodeSplitterApp(QWidget):
             self.show_message("خطا", "ابتدا فایل اکسل ورودی را انتخاب کنید.")
             return
 
-        header_row = self.header_spinbox.value()
-        max_empty_allowed = self.empty_column_spinbox.value()
+        header_row = self.header_spinbox.value() -1
+        max_empty_allowed = self.empty_column_spinbox.value() -1
 
         try:
             df = pd.read_excel(self.input_file, header=header_row, dtype=str)

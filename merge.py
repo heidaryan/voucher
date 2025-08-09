@@ -18,36 +18,36 @@ class ExcelMergeApp(QWidget):
         layout = QVBoxLayout()
 
         # بارگذاری و انتخاب ستون اکسل اول
-        self.btn_load_1 = QPushButton("بارگذاری فایل اکسل اول")
+        self.btn_load_1 = QPushButton("بارگذاری فایل ریز اسناد")
         self.btn_load_1.clicked.connect(self.load_file1)
         layout.addWidget(self.btn_load_1)
 
-        layout.addWidget(QLabel("انتخاب ستون کد در اکسل اول:"))
+        layout.addWidget(QLabel("انتخاب ستون کد در اکسل ریزاسناد:"))
         self.combo_code_1 = QComboBox()
         layout.addWidget(self.combo_code_1)
 
         # بارگذاری و انتخاب ستون‌های اکسل دوم
-        self.btn_load_2 = QPushButton("بارگذاری فایل اکسل دوم")
+        self.btn_load_2 = QPushButton("بارگذاری فایل تراز(کل/معین/تراز)")
         self.btn_load_2.clicked.connect(self.load_file2)
         layout.addWidget(self.btn_load_2)
 
         # پیش‌نمایش فایل دوم
-        layout.addWidget(QLabel("پیش‌نمایش 10 ردیف اول اکسل دوم:"))
+        layout.addWidget(QLabel("انتخاب ستون Code در تراز"))
         self.text_preview_2 = QTextEdit()
         self.text_preview_2.setReadOnly(True)
         layout.addWidget(self.text_preview_2)
 
-        layout.addWidget(QLabel("انتخاب ردیف هدر در اکسل دوم:"))
+        layout.addWidget(QLabel("انتخاب ردیف هدر در اکسل تراز:"))
         self.combo_header_row = QComboBox()
-        self.combo_header_row.addItems([str(i) for i in range(10)])  # از 0 تا 9
+        self.combo_header_row.addItems([str(i) for i in range(20)])  # از 0 تا 9
         self.combo_header_row.currentIndexChanged.connect(self.reload_df2_with_header)
         layout.addWidget(self.combo_header_row)
 
-        layout.addWidget(QLabel("انتخاب ستون کد در اکسل دوم:"))
+        layout.addWidget(QLabel("انتخاب ستون Code در اکسل تراز:"))
         self.combo_code_2 = QComboBox()
         layout.addWidget(self.combo_code_2)
 
-        layout.addWidget(QLabel("انتخاب ستون نام در اکسل دوم:"))
+        layout.addWidget(QLabel("انتخاب ستون Name در اکسل تراز:"))
         self.combo_name_2 = QComboBox()
         layout.addWidget(self.combo_name_2)
 

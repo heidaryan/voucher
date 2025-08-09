@@ -12,7 +12,7 @@ class ExcelFormatterApp(QWidget):
 
         layout = QVBoxLayout()
 
-        self.load_button = QPushButton("انتخاب فایل ورودی اکسل")
+        self.load_button = QPushButton("انتخاب فایل  ریز اسناد ")
         self.load_button.clicked.connect(self.select_input_file)
         layout.addWidget(self.load_button)
 
